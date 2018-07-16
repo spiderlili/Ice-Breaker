@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 807f1e8a474d5244199e4e6ed6e12914
+timeCreated: 1523555390
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: VAG Rundschrift D
+  fontNames:
+  - VAG Rundschrift D
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
