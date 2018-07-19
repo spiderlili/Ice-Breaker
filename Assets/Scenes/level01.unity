@@ -179,7 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f398307ffa339f6409f5f274ac3e0be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 2146805045}
 --- !u!1 &838605869
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +190,7 @@ GameObject:
   - component: {fileID: 838605872}
   - component: {fileID: 838605871}
   - component: {fileID: 838605870}
+  - component: {fileID: 838605874}
   m_Layer: 0
   m_Name: ball-heart-flat
   m_TagString: Untagged
@@ -285,12 +285,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 838605869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838605874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 838605869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa66c8ff647149e4e829292fa118d50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddle: {fileID: 1903877600}
 --- !u!1 &1259531888
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dae891dd3ccc834cad1c53de575bca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TotatlGameUnits: 16
 --- !u!1 &2146805044
 GameObject:
   m_ObjectHideFlags: 0
