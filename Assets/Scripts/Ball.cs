@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
-    public Paddle paddle;
+    private Paddle paddle;
     private Vector3 paddleToBallVector;
     private bool hasStarted = false;
     private Rigidbody2D ballRigidBody;
 
 	void Start () {
+        //link to prefab
+        paddle = GameObject.FindObjectOfType<Paddle>(); //Generics filter
         paddleToBallVector = this.transform.position - paddle.transform.position;
         ballRigidBody = GetComponent<Rigidbody2D>();
 	}
