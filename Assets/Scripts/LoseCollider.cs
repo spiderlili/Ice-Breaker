@@ -15,6 +15,6 @@ public class LoseCollider : MonoBehaviour {
         //link to level manager automatically rather than with editor assignment
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         print("trigger"); 
-        levelManager.LoadLevel("WinScreen");
+        levelManager.LoadLevel("LoseScreen");
     }
 }
