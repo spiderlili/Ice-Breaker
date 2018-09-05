@@ -3,16 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
-    private Paddle paddle;
+    //state
     private Vector3 paddleToBallVector;
     private bool hasStarted = false;
+
+    //cached component references
+    AudioSource myAudioSource;
+
+    //config params
+    private Paddle paddle;
     private Rigidbody2D ballRigidBody;
+    [SerializeField] AudioClip[] ballSounds;
+    [SerializeField] float xPush = 2f;
+    [SerializeField] float yPush = 15f;
 
 	void Start () {
         //link to prefab
         paddle = GameObject.FindObjectOfType<Paddle>(); //Generics filter
         paddleToBallVector = this.transform.position - paddle.transform.position;
         ballRigidBody = GetComponent<Rigidbody2D>();
+        myAudioSource = GetComponent<AudioSource>();//only finding it once for efficiency
 	}
 
     private void LaunchOnMouseClick()
@@ -35,7 +45,10 @@ public class Ball : MonoBehaviour {
     {
         if (hasStarted)
         {
-            GetComponent<AudioSource>().Play(); //prevent SE from playing from the first collision before the game starts
+            //play randomised trigger sounds each time there is a collision
+            AudioClip clip = ballSounds[UnityEngine.Random.Range(0, ballSounds.Length)];
+            //play one shot and makes sure it plays the whole way through even if other things are playing on top of it
+            myAudioSource.PlayOneShot(clip); //prevent SE from playing from the first collision before the game starts
         }
     }
 
