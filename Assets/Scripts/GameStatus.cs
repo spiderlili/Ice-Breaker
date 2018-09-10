@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class GameStatus : MonoBehaviour {
     [Range(0.1f, 10f)][SerializeField] float gameSpeed = 1.0f;
-    
-	// Use this for initialization
-	void Start () {
+    [SerializeField] int scorePerBlockDestroyed = 83;
+
+    //state variables
+    [SerializeField] int currentScore = 0;
+
+    void Start () {
 		
 	}
 
@@ -14,4 +17,8 @@ public class GameStatus : MonoBehaviour {
     void Update () {
         Time.timeScale = gameSpeed;
 	}
+
+    public void AddToScore() {
+        currentScore += scorePerBlockDestroyed;
+    }
 }

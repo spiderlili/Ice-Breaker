@@ -8,10 +8,12 @@ public class Brick : MonoBehaviour {
     public Sprite[] hitSprites;
     private int timesHit;//how many times it has been hit
     private LevelManager levelManager;
+    private GameStatus gameStatus;
     Level level; //cached reference
 
     void Start () {
         timesHit = 0;
+        gameStatus = GameObject.FindObjectOfType<GameStatus>();
         levelManager = GameObject.FindObjectOfType<LevelManager>();
         level = FindObjectOfType<Level>(); //keep track of breakable blocks
         level.CountBreakableBlocks(); //each block to add itself to the total - load the next level when it reaches 0
@@ -26,6 +28,7 @@ public class Brick : MonoBehaviour {
     {
         timesHit++;
         AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position); //play 3D sound at camera position and destroy itself
+  
 
         //destroy the brick after hitting it maxHits times(safeguard superball situation to never miss maxHits)
         if (timesHit >= maxHits)
@@ -40,6 +43,7 @@ public class Brick : MonoBehaviour {
 
     private void DestroyBlock()
     {
+        gameStatus.AddToScore();
         Destroy(gameObject); //this = a brick, must destroy game object
         level.BlockDestroyed();
     }
